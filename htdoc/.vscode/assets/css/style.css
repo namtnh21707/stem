@@ -1,0 +1,372 @@
+:root {
+  --united-nations-blue: hsl(214, 56%, 58%);
+  --bright-navy-blue: hsl(214, 57%, 51%);
+  --spanish-gray: hsl(0, 0%, 60%);
+  --black-coral: hsl(225, 8%, 42%);
+  --oxford-blue: hsl(208, 97%, 12%);
+  --yale-blue: hsl(214, 72%, 33%);
+  --blue-ncs: hsl(197, 100%, 36%);
+  --gunmetal: hsl(206, 34%, 20%);
+  --gainsboro: hsl(0, 0%, 88%);
+  --cultured: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(0, 0%, 0%);
+  --onyx: hsl(0, 0%, 25%);
+  --jet: hsl(0, 0%, 20%);
+
+  --ff-poppins: "Poppins", sans-serif;
+  --ff-montserrat: "Montserrat", sans-serif;
+
+  --fs-1: calc(20px + 3.5vw);
+  --fs-2: calc(18px + 1.6vw);
+  --fs-3: calc(16px + 0.45vw);
+  --fs-4: 15px;
+  --fs-5: 14px;
+  --fs-6: 13px;
+  --fs-7: 12px;
+  --fs-8: 11px;
+
+  --fw-500: 500;
+  --fw-600: 600;
+  --fw-700: 700;
+  --fw-800: 800;
+
+  --transition: 0.25s ease-in-out;
+  --section-padding: 60px;
+  --radius-15: 15px;
+  --radius-25: 25px;
+}
+
+/* General reset styles */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+li { list-style: none; }
+a { text-decoration: none; }
+a, img, span, input, label, button, ion-icon { display: block; }
+input, button { background: none; border: none; font: inherit; }
+button { cursor: pointer; }
+input { width: 100%; }
+ion-icon { pointer-events: none; }
+
+html {
+  font-family: var(--ff-poppins);
+  scroll-behavior: smooth;
+}
+
+body { background: var(--white); }
+.container { padding-inline: 15px; }
+
+.btn {
+  color: var(--white);
+  text-transform: uppercase;
+  font-size: var(--fs-5);
+  border-radius: 100px;
+  padding: var(--padding, 8px 18px);
+  border: var(--border-width, 2px) solid transparent;
+  transition: var(--transition);
+}
+
+/* Header styling */
+.header {
+  position: fixed; /* Fix header to the top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: var(--bright-navy-blue); /* Giữ màu hiện tại */
+  z-index: 999; /* Ensure header stays above content */
+  padding: 10px 0;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for visual appeal */
+}
+
+body {
+  margin-top: 60px; /* Ensure the content is not hidden behind the header */
+}
+
+/* Logo and menu items */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-top .logo img {
+  max-width: 100px;
+}
+
+.header-btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.search-btn, .nav-open-btn {
+  font-size: 30px;
+  color: var(--white);
+}
+
+/* Make menu sticky at the top */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--bright-navy-blue); /* Giữ màu hiện tại */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional shadow for visual appeal */
+}
+
+.navbar-list {
+  display: flex;
+  gap: 15px;
+  padding: 10px 0;
+}
+
+.navbar-link {
+  font-size: var(--fs-4);
+  color: var(--white); /* Giữ màu hiện tại */
+  text-transform: capitalize;
+  padding: 10px;
+  transition: var(--transition);
+}
+
+.navbar-link:hover, .navbar-link:focus {
+  color: var(--yale-blue); /* Giữ màu hover như hiện tại */
+}
+
+/* Hero section */
+.hero {
+  position: relative; /* Cần thiết để lớp phủ ở trên ảnh nền */
+  background-image: url("https://media.vov.vn/sites/default/files/styles/large/public/2022-12/Truong%20Sa%20Xanh%204.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 600px;
+  text-align: center;
+  padding-top: 125px;
+}
+
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* Lớp phủ tối với độ mờ */
+  z-index: 0; /* Đảm bảo lớp phủ nằm dưới nội dung */
+}
+
+.hero > * {
+  position: relative; /* Nội dung phải được đặt trên lớp phủ */
+  z-index: 1;
+}
+
+
+.hero-title {
+  color: var(--gainsboro);  /* Màu chữ đổi sang màu khác, ví dụ như màu Yale Blue */
+  margin-bottom: 20px;
+}
+
+
+/* Footer */
+.footer-top {
+  background: var(--gunmetal);
+  padding-block: var(--section-padding);
+  color: var(--gainsboro);
+}
+
+
+
+.copyright {
+  color: var(--gainsboro);
+  font-size: var(--fs-5);
+  margin-bottom: 10px;
+}
+
+.copyright a {
+  color: inherit;
+  display: inline-block;
+}
+
+.copyright a:hover, .copyright a:focus {
+  color: var(--white);
+}
+
+.events {
+  padding: 60px 0;
+  background-color: var(--cultured);
+}
+
+.events .container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.event-card {
+  background: var(--white);
+  border-radius: var(--radius-15);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 48%;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.event-card:hover {
+  transform: translateY(-10px);
+}
+
+.event-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.event-info {
+  padding: 15px;
+}
+
+.event-title {
+  font-size: var(--fs-4);
+  color: var(--gunmetal);
+  margin-bottom: 10px;
+}
+
+.event-year {
+  font-size: var(--fs-5);
+  color: var(--spanish-gray);
+}
+/* Điều chỉnh iframe */
+iframe {
+  border: none !important;   /* Loại bỏ viền */
+  outline: none !important;  /* Loại bỏ outline */
+  box-shadow: none !important;  /* Loại bỏ bóng */
+  width: 100%;               /* Chiếm hết chiều rộng của phần tử chứa */
+  height: 500px;             /* Chiều cao tùy chỉnh */
+  display: block;            /* Đảm bảo iframe là block để loại bỏ không gian thừa */
+  margin: 0;                 /* Đảm bảo không có khoảng cách xung quanh iframe */
+}
+
+
+/* Loại bỏ viền toàn bộ phần tử */
+* {
+  outline: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* Điều chỉnh iframe */
+iframe {
+  border: none !important;   /* Loại bỏ viền */
+  outline: none !important;  /* Loại bỏ outline */
+  box-shadow: none !important;  /* Loại bỏ bóng */
+  width: 100%;               /* Chiếm hết chiều rộng của phần tử chứa */
+  height: 500px;             /* Chiều cao tùy chỉnh */
+  display: block;            /* Đảm bảo iframe là block để loại bỏ không gian thừa */
+  margin: 0;                 /* Đảm bảo không có khoảng cách xung quanh iframe */
+}
+
+/* Nếu iframe trong một div, cũng phải đảm bảo div đó không có viền */
+iframe, .iframe-container {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* Loại bỏ viền, outline và padding cho div bao quanh iframe */
+div {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Điều chỉnh iframe */
+iframe {
+  border: none !important; /* Loại bỏ viền */
+  outline: none !important; /* Loại bỏ outline */
+  box-shadow: none !important; /* Loại bỏ bóng */
+  width: 100%;
+  height: 500px; /* Điều chỉnh chiều cao */
+  display: block; /* Đảm bảo iframe là block để loại bỏ không gian thừa */
+  margin: 0; /* Đảm bảo không có khoảng cách xung quanh iframe */
+}
+iframe {
+  transform: scale(1);
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+/* Loại bỏ viền, outline và bóng của tất cả các phần tử */
+*,
+*::before,
+*::after {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  margin: 0;
+  padding: 0;
+}
+
+/* Loại bỏ viền, outline và bóng của iframe */
+iframe {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  width: 100%;
+  height: 500px; /* Hoặc chiều cao tùy chỉnh */
+  display: block; /* Đảm bảo iframe là block */
+  margin: 0;
+}
+
+/* Đảm bảo phần tử bao quanh iframe không có viền hoặc bóng */
+div {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Áp dụng box-sizing cho tất cả phần tử */
+*,
+*::before,
+*::after {
+  box-sizing: border-box !important;
+}
+<style>
+    /* Cải thiện thanh điều hướng cho header */
+    header {
+        background-color: #004085; /* Màu xanh đậm cho header */
+        padding: 10px 0;
+    }
+
+    /* Thanh menu chỉ trong header */
+    header .navbar-list {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+    }
+
+    /* Các liên kết trong menu */
+    header .navbar-link {
+        font-size: 1rem;
+        color: #ffffff; /* Màu chữ trắng */
+        font-weight: bold;
+        text-decoration: none;
+        text-transform: uppercase; /* Chữ in hoa */
+        transition: color 0.3s ease;
+    }
+
+    /* Hiệu ứng khi hover vào liên kết */
+    header .navbar-link:hover {
+        color: #ffd700; /* Màu vàng khi hover */
+    }
+</style>
